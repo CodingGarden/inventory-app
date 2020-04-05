@@ -1,12 +1,25 @@
-# Inventory App
+# Model a SQL Database
 
-An app to keep track of your inventory of items.
+Every Record will have:
+Created At - datetime
+Updated At - datetime
+Deleted At - datetime
 
-## Backend Setup
+## Entities in an Home Inventory System
 
-* Install dependencies: `npm install`
-* Create `.env` with your values
-* Run the postgres db / adminer: `docker-compose up`
-* Migrate the database: `npm run migrate`
+* [x] User
+* [x] Item
+* [x] Item Type
+* [ ] Comment
+* [x] Manufacturer
+* [ ] Warranty
+* [x] Item Location
+* [ ] Item Purchase Location
 
-* Adminer will be running at http://localhost:8090
+## Seed the Database
+
+* [x] User
+* [ ] Countries - Partial, more to do!
+* [ ] US States - Partial, more to do!
+* [ ] Item Types
+* [ ] Location

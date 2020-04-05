@@ -80,6 +80,8 @@ exports.up = async (knex) => {
     email(table, 'email');
     references(table, 'address');
   });
+
+  // TODO: create the item table... cause thats what its all about
 };
 
 exports.down = async (knex) => {
