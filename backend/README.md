@@ -8,7 +8,7 @@ Deleted At - datetime
 ## Entities in an Home Inventory System
 
 * [x] User
-* [x] Item
+* [ ] Item
 * [x] Item Type
 * [ ] Comment
 * [x] Manufacturer
