@@ -19,14 +19,17 @@ function email(table, columnName) {
   return table.string(columnName, 254);
 }
 
-function references(table, tableName) {
-  table
+function references(table, tableName, notNullable = true) {
+  const definition = table
     .integer(`${tableName}_id`)
     .unsigned()
     .references('id')
     .inTable(tableName)
     .onDelete('cascade');
-  // TODO: should this be not nullable????
+
+  if (notNullable) {
+    definition.notNullable();
+  }
 }
 
 module.exports = {
