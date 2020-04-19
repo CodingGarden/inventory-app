@@ -19,9 +19,9 @@ function email(table, columnName) {
   return table.string(columnName, 254);
 }
 
-function references(table, tableName, notNullable = true) {
+function references(table, tableName, notNullable = true, columnName = '') {
   const definition = table
-    .integer(`${tableName}_id`)
+    .integer(`${columnName || tableName}_id`)
     .unsigned()
     .references('id')
     .inTable(tableName)
@@ -30,6 +30,7 @@ function references(table, tableName, notNullable = true) {
   if (notNullable) {
     definition.notNullable();
   }
+  return definition;
 }
 
 module.exports = {

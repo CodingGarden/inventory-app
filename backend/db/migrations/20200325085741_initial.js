@@ -26,7 +26,7 @@ exports.up = async (knex) => {
     createNameTable(knex, tableNames.country),
     createNameTable(knex, tableNames.state),
     createNameTable(knex, tableNames.shape),
-    knex.schema.createTable(tableNames.location, (table) => {
+    knex.schema.createTable(tableNames.inventory_location, (table) => {
       table.increments().notNullable();
       table.string('name').notNullable().unique();
       table.string('description', 1000);
@@ -47,7 +47,7 @@ exports.up = async (knex) => {
     references(table, 'country');
   });
 
-  await knex.schema.createTable(tableNames.manufacturer, (table) => {
+  await knex.schema.createTable(tableNames.company, (table) => {
     table.increments().notNullable();
     table.string('name').notNullable();
     url(table, 'logo_url');
@@ -57,19 +57,17 @@ exports.up = async (knex) => {
     email(table, 'email');
     references(table, 'address');
   });
-
-  // TODO: create the item table... cause thats what its all about
 };
 
 exports.down = async (knex) => {
   await Promise.all([
-    tableNames.manufacturer,
+    tableNames.company,
     tableNames.address,
     tableNames.user,
     tableNames.item_type,
     tableNames.country,
     tableNames.state,
     tableNames.shape,
-    tableNames.location,
-  ].map((tableName) => knex.schema.dropTable(tableName)));
+    tableNames.inventory_location,
+  ].map((tableName) => knex.schema.dropTableIfExists(tableName)));
 };
