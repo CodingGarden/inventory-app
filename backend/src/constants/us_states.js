@@ -10,18 +10,18 @@ const csvData = fs
       '..',
       'db',
       'sources',
-      'countries.csv',
+      'us_states.csv',
     ),
     'utf8',
   );
 
-const countries = Papa.parse(csvData, {
+const states = Papa.parse(csvData, {
   header: true,
 });
 
-module.exports = countries
+module.exports = states
   .data
-  .map(({ name, 'alpha-2': code }) => ({
+  .map(({ state: name, code }) => ({
     name,
     code,
   }));

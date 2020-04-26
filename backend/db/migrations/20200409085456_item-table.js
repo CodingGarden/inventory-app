@@ -13,6 +13,7 @@ const tableNames = require('../../src/constants/tableNames');
 exports.up = async (knex) => {
   await knex.schema.table(tableNames.state, (table) => {
     table.string('code');
+    references(table, tableNames.country);
   });
 
   await knex.schema.table(tableNames.country, (table) => {
@@ -78,6 +79,7 @@ exports.up = async (knex) => {
 exports.down = async (knex) => {
   await knex.schema.table(tableNames.state, (table) => {
     table.dropColumn('code');
+    table.dropColumn('country_id');
   });
 
   await knex.schema.table(tableNames.country, (table) => {

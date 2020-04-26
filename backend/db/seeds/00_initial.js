@@ -3,19 +3,16 @@ const bcrypt = require('bcrypt');
 const Knex = require('knex');
 
 const tableNames = require('../../src/constants/tableNames');
-const orderedTableNames = require('../../src/constants/orderedTableNames');
 const countries = require('../../src/constants/countries');
+const us_states = require('../../src/constants/us_states');
 
 /**
  * @param {Knex} knex
  */
 exports.seed = async (knex) => {
-  await orderedTableNames
-    .reduce(async (promise, table_name) => {
-      await promise;
-      console.log('Clearing', table_name);
-      return knex(table_name).del();
-    }, Promise.resolve());
+  await Promise.all(Object
+    .keys(tableNames)
+    .map((name) => knex(name).del()));
 
   const password = crypto.randomBytes(15).toString('hex');
 
@@ -33,11 +30,14 @@ exports.seed = async (knex) => {
     password,
   }, createdUser);
 
-  await knex(tableNames.country)
-    .insert(countries);
+  const insertedCountries = await knex(tableNames.country)
+    .insert(countries, '*');
 
-  await knex(tableNames.state)
-    .insert([{
-      name: 'CO',
-    }]);
+  const usa = insertedCountries.find(country => country.code === 'US');
+
+  us_states.forEach(state => {
+    state.country_id = usa.id;
+  });
+  
+  await knex(tableNames.state).insert(us_states);
 };
