@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "Address",
+    "description": "The Address",
+    "required": [
+        "street_address_1",
+        "city",
+        "zipcode",
+        "country_id",
+        "latitude",
+        "longitude"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "integer",
+            "title": "The database ID of the address."
+        },
+        "street_address_1": {
+            "$id": "#/properties/street_address_1",
+            "type": "string",
+            "title": "The street address."
+        },
+        "street_address_2": {
+            "$id": "#/properties/street_address_2",
+            "type": "string",
+            "title": "The street address 2."
+        },
+        "city": {
+            "$id": "#/properties/city",
+            "type": "string",
+            "title": "The city name."
+        },
+        "zipcode": {
+            "$id": "#/properties/zipcode",
+            "type": "string",
+            "title": "The zipcode."
+        },
+        "latitude": {
+            "$id": "#/properties/latitude",
+            "type": "number",
+            "title": "The latitude."
+        },
+        "longitude": {
+            "$id": "#/properties/longitude",
+            "type": "number",
+            "title": "The longitude."
+        },
+        "state_id": {
+            "$id": "#/properties/state_id",
+            "type": "number",
+            "title": "The id of the state."
+        },
+        "country_id": {
+            "$id": "#/properties/country_id",
+            "type": "number",
+            "title": "The id of the country."
+        }
+    }
+}

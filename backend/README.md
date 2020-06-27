@@ -23,3 +23,19 @@ Deleted At - datetime
 * [ ] US States - Partial, more to do!
 * [ ] Item Types
 * [ ] Location
+
+## Goals for todays stream!
+
+* CRUD
+  * Create
+  * Read
+  * Update
+  * Delete
+
+* [ ] Addresses
+* [ ] Companies
+* [ ] Items
+
+## STRETCH
+* [ ] Item Info
+* [ ] Pagination

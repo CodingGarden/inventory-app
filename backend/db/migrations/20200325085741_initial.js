@@ -41,10 +41,19 @@ exports.up = async (knex) => {
     table.string('street_address_2', 50);
     table.string('city', 50).notNullable();
     table.string('zipcode', 15).notNullable();
-    table.float('latitude').notNullable();
-    table.float('longitude').notNullable();
+    table.double('latitude').notNullable();
+    table.double('longitude').notNullable();
     references(table, 'state', false);
     references(table, 'country');
+    addDefaultColumns(table);
+    table.unique([
+      'street_address_1',
+      'street_address_2',
+      'city',
+      'zipcode',
+      'country_id',
+      'state_id',
+    ]);
   });
 
   await knex.schema.createTable(tableNames.company, (table) => {
@@ -56,6 +65,7 @@ exports.up = async (knex) => {
     // `type` text,
     email(table, 'email');
     references(table, 'address');
+    addDefaultColumns(table);
   });
 };
 
