@@ -15,25 +15,25 @@
   "author": "CJ R. <cj@null.computer> (https://w3cj.now.sh)",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "helmet": "^3.22.0",
+    "helmet": "^3.23.3",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.21.0",
+    "knex": "^0.21.2",
     "morgan": "^1.10.0",
-    "objection": "^2.1.5",
+    "objection": "^2.2.1",
     "papaparse": "^5.2.0",
-    "pg": "^8.0.3",
+    "pg": "^8.3.0",
     "yup": "^0.29.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "jest": "^25.5.4",
-    "nodemon": "^2.0.3",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }
 }
