@@ -15,6 +15,7 @@ module.exports = {
       .select(fields)
       .where({
         id,
-      }).first();
+      })
+      .first();
   },
 };

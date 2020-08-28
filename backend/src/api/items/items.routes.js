@@ -6,9 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const items = await Item
-      .query()
-      .where('deleted_at', null);
+    const items = await Item.query().where('deleted_at', null);
     res.json(items);
   } catch (error) {
     next(error);
@@ -18,9 +16,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     // TODO: set user id by logged in user
-    const item = await Item
-      .query()
-      .insert(req.body);
+    const item = await Item.query().insert(req.body);
     res.json(item);
   } catch (error) {
     next(error);

@@ -9,16 +9,8 @@ const User = require('../users/users.model');
 const router = express.Router();
 
 const schema = yup.object().shape({
-  name: yup
-    .string()
-    .trim()
-    .min(2)
-    .required(),
-  email: yup
-    .string()
-    .trim()
-    .email()
-    .required(),
+  name: yup.string().trim().min(2).required(),
+  email: yup.string().trim().email().required(),
   password: yup
     .string()
     .min(8)
@@ -36,11 +28,7 @@ const errorMessages = {
 };
 
 router.post('/signup', async (req, res, next) => {
-  const {
-    name,
-    email,
-    password,
-  } = req.body;
+  const { name, email, password } = req.body;
   try {
     const createUser = {
       name,
@@ -80,18 +68,18 @@ router.post('/signup', async (req, res, next) => {
 });
 
 router.post('/signin', async (req, res, next) => {
-  const {
-    email,
-    password,
-  } = req.body;
+  const { email, password } = req.body;
   try {
-    await schema.validate({
-      name: 'DocD',
-      email,
-      password,
-    }, {
-      abortEarly: false,
-    });
+    await schema.validate(
+      {
+        name: 'DocD',
+        email,
+        password,
+      },
+      {
+        abortEarly: false,
+      }
+    );
     const user = await User.query().where({ email }).first();
     if (!user) {
       const error = new Error(errorMessages.invalidLogin);
@@ -118,6 +106,5 @@ router.post('/signin', async (req, res, next) => {
     next(error);
   }
 });
-
 
 module.exports = router;

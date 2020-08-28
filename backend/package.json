@@ -5,11 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "migrate": "knex migrate:latest",
-    "rollback": "knex migrate:rollback",
-    "seed": "knex seed:run",
-    "test": "jest"
+    "dev": "DEBUG=inventory-app nodemon src/index.js",
+    "migrate": "DEBUG=inventory-app knex migrate:latest",
+    "rollback": "DEBUG=inventory-app knex migrate:rollback",
+    "seed": "DEBUG=inventory-app knex seed:run",
+    "test": "DEBUG=inventory-app jest",
+    "lint": "eslint db src"
   },
   "keywords": [],
   "author": "CJ R. <cj@null.computer> (https://w3cj.now.sh)",
@@ -31,9 +32,12 @@
   "devDependencies": {
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.4.2",
     "nodemon": "^2.0.4",
+    "prettier": "^2.1.1",
     "supertest": "^4.0.2"
   }
 }

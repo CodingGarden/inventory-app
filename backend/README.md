@@ -8,13 +8,13 @@ Deleted At - datetime
 ## Entities in an Home Inventory System
 
 * [x] User
-* [ ] Item
+* [x] Item
 * [x] Item Type
-* [ ] Comment
 * [x] Manufacturer
-* [ ] Warranty
 * [x] Item Location
 * [ ] Item Purchase Location
+* [ ] Comment
+* [ ] Warranty
 
 ## Seed the Database
 
@@ -24,18 +24,30 @@ Deleted At - datetime
 * [ ] Item Types
 * [ ] Location
 
-## Goals for todays stream!
-
-* CRUD
-  * Create
-  * Read
-  * Update
-  * Delete
+## API Endpoints
 
 * [ ] Addresses
+  * [x] Create
+  * [x] List
+  * [ ] Get One
+  * [ ] Update
+  * [ ] Delete
 * [ ] Companies
+  * [x] List
+  * [ ] Get One
+  * [ ] Create
+  * [ ] Update
+  * [ ] Delete
 * [ ] Items
-
-## STRETCH
+  * [x] List
+  * [x] Create
+  * [ ] Get One
+  * [ ] Update
+  * [ ] Delete
 * [ ] Item Info
+  * [x] List
+  * [x] Create
+  * [ ] Get One
+  * [ ] Update
+  * [ ] Delete
 * [ ] Pagination

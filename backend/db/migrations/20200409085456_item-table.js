@@ -1,5 +1,3 @@
-const Knex = require('knex');
-
 const {
   addDefaultColumns,
   url,
@@ -8,7 +6,7 @@ const {
 const tableNames = require('../../src/constants/tableNames');
 
 /**
- * @param {Knex} knex
+ * @param {import('knex')} knex
  */
 exports.up = async (knex) => {
   await knex.schema.table(tableNames.state, (table) => {
@@ -86,12 +84,15 @@ exports.down = async (knex) => {
     table.dropColumn('code');
   });
 
-  await Promise.all([
-    tableNames.size,
-    tableNames.item,
-    tableNames.item_info,
-    tableNames.item_image,
-    tableNames.related_item,
-  ].reverse()
-    .map((name) => knex.schema.dropTableIfExists(name)));
+  await Promise.all(
+    [
+      tableNames.size,
+      tableNames.item,
+      tableNames.item_info,
+      tableNames.item_image,
+      tableNames.related_item,
+    ]
+      .reverse()
+      .map((name) => knex.schema.dropTableIfExists(name))
+  );
 };
