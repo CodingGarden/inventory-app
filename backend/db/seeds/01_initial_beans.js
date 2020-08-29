@@ -43,4 +43,19 @@ exports.seed = async (knex) => {
   await knex(tableNames.item_type).insert({
     name: 'Canned Goods',
   });
+
+  await knex(tableNames.inventory_location).insert([
+    {
+      name: 'Kitchen Pantry',
+    },
+    {
+      name: 'Basement Pantry',
+    },
+    {
+      name: 'Basement Freezer',
+    },
+    {
+      name: 'Kitchen Fridge',
+    },
+  ]);
 };

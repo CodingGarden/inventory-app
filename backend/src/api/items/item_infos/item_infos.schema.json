@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "Item Info",
+  "description": "The Item Info",
+  "required": [
+    "user_id",
+    "item_id",
+    "purchase_date",
+    "inventory_location_id"
+  ],
+  "additionalProperties": false,
+  "properties": {
+      "id": {
+          "$id": "#/properties/id",
+          "type": "integer",
+          "title": "The database ID of the Item."
+      },
+      "purchase_date": {
+          "$id": "#/properties/purchase_date",
+          "type": "string",
+          "format": "date",
+          "title": "The date of purchase"
+      },
+      "expiration_date": {
+          "$id": "#/properties/expiration_date",
+          "type": "string",
+          "format": "date",
+          "title": "The date of expiration"
+      },
+      "last_used": {
+          "$id": "#/properties/last_used",
+          "type": "string",
+          "format": "date",
+          "title": "The date of last use."
+      },
+      "retailer_id": {
+        "$id": "#/properties/retailer_id",
+        "type": "integer",
+        "title": "The id of the retailer."
+      },
+      "purchase_price": {
+        "$id": "#/properties/purchase_price",
+        "minimum": 0,
+        "type": "number",
+        "title": "The purchase price."
+      },
+      "msrp": {
+        "$id": "#/properties/msrp",
+        "minimum": 0,
+        "type": "number",
+        "title": "The msrp."
+      },
+      "item_id": {
+        "$id": "#/properties/item_id",
+        "type": "integer",
+        "title": "The id of the parent item."
+      },
+      "user_id": {
+          "$id": "#/properties/user_id",
+          "type": "number",
+          "title": "The id of the user."
+      },
+      "inventory_location_id": {
+          "$id": "#/properties/inventory_location_id",
+          "type": "number",
+          "title": "The id of the inventory location."
+      }
+  }
+}
