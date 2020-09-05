@@ -1,6 +1,9 @@
 const supertest = require('supertest');
 
 const app = require('../../app');
+const connection = require('../../db');
+
+afterAll(() => connection.destroy());
 
 describe('GET /api/v1/companies', () => {
   it('should respond with an array of companies', async () => {
