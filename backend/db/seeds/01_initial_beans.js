@@ -17,7 +17,7 @@ exports.seed = async (knex) => {
       .first(),
   ]);
 
-  const [address_id] = await knex(tableNames.address)
+  const [address] = await knex(tableNames.address)
     .insert({
       street_address_1: 'p.o. box 52330',
       street_address_2: 'dept. c',
@@ -37,7 +37,7 @@ exports.seed = async (knex) => {
       "Bush Brothers and Company is a family-owned corporation best known for its Bush's Best brand canned baked beans.",
     website_url: 'https://bushbeans.com/',
     email: 'help@bushbros.com',
-    address_id,
+    address_id: address.id,
   });
 
   await knex(tableNames.item_type).insert({
