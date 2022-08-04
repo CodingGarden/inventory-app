@@ -67,9 +67,12 @@ router.post('/signup', async (req, res, next) => {
   }
 });
 
+// TODO: stateless refresh tokens...
 router.post('/signin', async (req, res, next) => {
   const { email, password } = req.body;
   try {
+    // TODO: should we validate password with regex on sigin?
+    // TODO: password validation changes would effect old users...
     await schema.validate(
       {
         name: 'DocD',
@@ -95,7 +98,8 @@ router.post('/signin', async (req, res, next) => {
     const payload = {
       id: user.id,
       name: user.name,
-      email,
+      // TODO: get roles from DB
+      roles: ['admin', 'list:users'],
     };
     const token = await jwt.sign(payload);
     res.json({
